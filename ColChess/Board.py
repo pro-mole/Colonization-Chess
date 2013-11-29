@@ -24,7 +24,7 @@ class Board:
                 self.B[i].append(T.Tile())
         
         for p in ["Nature","Industry"]:
-            self.players.append([P.getPlayerClass(p)()])
+            self.players.append([P.playerClass[p]()])
         self.current_player = self.players[START_PLAYER]
     
     def draw(self, win):
