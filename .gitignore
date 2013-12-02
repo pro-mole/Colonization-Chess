@@ -213,3 +213,21 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#########
+## C++
+#########
+
+*.o
+
+################
+## Executable
+################
+
+colchess*
+
+#############################
+## Library Package Folders
+#############################
+
+SDL2*
