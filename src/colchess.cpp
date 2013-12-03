@@ -2,24 +2,52 @@
 
 using namespace std;
 
-int main(int argc, char **argv) {
-	//Start SDL
-	SDL_Init( SDL_INIT_EVERYTHING );
+const char* cchess::version_number = "0.1a";
+const char* cchess::version_name = "amphioxus";
 
-	SDL_Window* screen = SDL_CreateWindow( "Colonization Chess", 0, 0, 640, 480, SDL_WINDOW_SHOWN );
-	SDL_Renderer *render = SDL_CreateRenderer(screen, -1,  SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+ColonizationChess* ColonizationChess::instance;
+SDL_Window* ColonizationChess::screen;
+SDL_Renderer* ColonizationChess::render;
+
+ColonizationChess* ColonizationChess::getInstance()
+{
+	if (instance == NULL)
+		instance = new ColonizationChess();
 	
-	//Update Screen
-	SDL_RenderClear(render);
-	SDL_RenderPresent(render);
+	return instance;
+}
 
-	//Pause
-	SDL_Delay( 2000 );
+void ColonizationChess::init()
+{
+	if (screen == NULL)
+	{
+		//Start SDL
+		SDL_Init( SDL_INIT_EVERYTHING );
 
-	//Quit SDL
-	SDL_DestroyRenderer(render);
-	SDL_DestroyWindow(screen);
-	SDL_Quit();
+		char* title = NULL;
+		sprintf(title, "Colonization Chess %s(%s)", cchess::version_number, cchess::version_name);
+		screen = SDL_CreateWindow( title, 64, 64, 640, 480, SDL_WINDOW_SHOWN );
+		render = SDL_CreateRenderer(screen, -1,  SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	}
+}
 
+void ColonizationChess::end()
+{
+	if (screen != NULL)
+	{
+		SDL_DestroyRenderer(render);
+		SDL_DestroyWindow(screen);
+		SDL_Quit();
+	}
+}
+
+int main(int argc, char **argv) {
+
+	ColonizationChess::getInstance();
+	ColonizationChess::init();
+	
+	SDL_Delay(2000);
+
+	ColonizationChess::end();
 	return 0;
 }
