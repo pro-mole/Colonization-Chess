@@ -8,7 +8,7 @@ Board::Board(int _size)
 	{
 		for (int j=0; j<size; j++)
 		{
-			std::cerr << "Board cell " << j << "," << i << "\n";
+			std::cerr << "Board cell " << j+1 << "," << i+1 << "\n";
 			board[j*size + i] = new Tile(NULL, cchess::T_TERRAIN);
 		}
 	}
