@@ -4,6 +4,8 @@
 #include <SDL.h>
 #include <SDL_main.h>
 #include <iostream>
+#include <vector>
+#include <map>
 #include <cstdlib>
 #include <cstdio>
 

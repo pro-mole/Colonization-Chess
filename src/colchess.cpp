@@ -15,7 +15,9 @@ void ColonizationChess::init()
 		char* title = new char[256];
 		sprintf(title, "Colonization Chess %s(%s)", cchess::version_number, cchess::version_name);
 		screen = SDL_CreateWindow( title, 64, 64, 640, 480, SDL_WINDOW_SHOWN );
+		cerr << "Window created\n";
 		render = SDL_CreateRenderer(screen, -1,  SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		cerr << "Rendered created\n";
 	}
 
 	board = new Board(9);
@@ -26,14 +28,19 @@ void ColonizationChess::end()
 	if (screen != NULL)
 	{
 		SDL_DestroyRenderer(render);
+		cerr << "Render destroyed\n";
 		SDL_DestroyWindow(screen);
+		cerr << "Window destroyed\n";
 		SDL_Quit();
+		cerr << "Bye bye\n";
 	}
 }
 
 int main(int argc, char **argv) {
-
+	
+	cerr << "START\n";
 	ColonizationChess* colchess = new ColonizationChess();
+	cerr << "Starting game (v" << cchess::version_number << "/" << cchess::version_name << ")\n";
 	colchess->init();
 	
 	SDL_Delay(2000);

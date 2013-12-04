@@ -2,13 +2,13 @@
 
 Board::Board(int size)
 {
-	board = new Tile**[size];
+	board = vector<Tile*>(size * size);
 	for (int i=0; i<size; i++)
 	{
-		board[i] = new Tile*[size];
 		for (int j=0; j<size; j++)
 		{
-			board[j][i] = new Tile();
+			std::cerr << "Board cell " << j << "," << i << "\n";
+			board[j*size + i] = new Tile();
 		}
 	}
 }

@@ -6,10 +6,12 @@
 #include <player.h>
 #include <tile.h>
 
+using namespace std;
+
 class Board
 {
-	Tile*** board;
-	Player** players;
+	vector<Tile*> board;
+	vector<Player*> players;
 	
 	public:
 		//The board (size)

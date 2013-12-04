@@ -3,7 +3,8 @@
 #include <commons.h>
 
 class Tile {
-	
+	public:
+		Tile();
 };
 
 #endif
