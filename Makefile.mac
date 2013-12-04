@@ -8,7 +8,7 @@ OBJ=./obj
 SDLFLAGS=`sdl2-config --cflags`
 SDLLIBS=`sdl2-config --libs`
 
-CC=g++ -c -Wall -I$(INC) $(SDLFLAGS)
+CC=g++ -c -Wall -O1 -std=c++11 -I$(INC) $(SDLFLAGS)
 CL=g++ -Wall -L$(LIB)
 
 include Makefile
