@@ -1,7 +1,9 @@
 #include <tile.h>
 
-Tile::Tile(): Tile(NULL, cchess::T_TERRAIN)
+Tile::Tile()
 {
+	owner = NULL;
+	type = cchess::T_TERRAIN;
 }
 
 Tile::Tile(Player* _player, cchess::T_tiles _type)
