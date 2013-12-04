@@ -5,18 +5,6 @@ using namespace std;
 const char* cchess::version_number = "0.1a";
 const char* cchess::version_name = "amphioxus";
 
-ColonizationChess* ColonizationChess::instance;
-SDL_Window* ColonizationChess::screen;
-SDL_Renderer* ColonizationChess::render;
-
-ColonizationChess* ColonizationChess::getInstance()
-{
-	if (instance == NULL)
-		instance = new ColonizationChess();
-	
-	return instance;
-}
-
 void ColonizationChess::init()
 {
 	if (screen == NULL)
@@ -24,11 +12,13 @@ void ColonizationChess::init()
 		//Start SDL
 		SDL_Init( SDL_INIT_EVERYTHING );
 
-		char* title = NULL;
+		char* title = new char[256];
 		sprintf(title, "Colonization Chess %s(%s)", cchess::version_number, cchess::version_name);
 		screen = SDL_CreateWindow( title, 64, 64, 640, 480, SDL_WINDOW_SHOWN );
 		render = SDL_CreateRenderer(screen, -1,  SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	}
+
+	board = new Board(9);
 }
 
 void ColonizationChess::end()
@@ -43,11 +33,11 @@ void ColonizationChess::end()
 
 int main(int argc, char **argv) {
 
-	ColonizationChess::getInstance();
-	ColonizationChess::init();
+	ColonizationChess* colchess = new ColonizationChess();
+	colchess->init();
 	
 	SDL_Delay(2000);
 
-	ColonizationChess::end();
+	colchess->end();
 	return 0;
 }

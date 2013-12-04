@@ -6,17 +6,17 @@
 //The game class, as usual
 class ColonizationChess
 {
-	static ColonizationChess* instance;//Let's make this a singleton, just in case
-	static SDL_Window* screen; //Main screen, where we draw all the stuff
-	static SDL_Renderer* render; //Main renderer, default to draw everything
+	ColonizationChess* instance;//Let's make this a singleton, just in case
+	SDL_Window* screen; //Main screen, where we draw all the stuff
+	SDL_Renderer* render; //Main renderer, default to draw everything
 	
+	Board* board; //The game board
+
 	public:
-		static ColonizationChess* getInstance();
-	
 		//Starts the game
 		//Create SDL window, set up a new board, the stuff
-		static void init();
+		void init();
 		
 		//Clean up and finish
-		static void end();
+		void end();
 };

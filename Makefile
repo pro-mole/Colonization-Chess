@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+PATH=/bin:/usr/bin:/usr/local/bin
 OS=mac
 INC=./inc
 LIB=./lib
