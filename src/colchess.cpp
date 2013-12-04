@@ -23,6 +23,11 @@ void ColonizationChess::init()
 	board = new Board(9);
 }
 
+void ColonizationChess::update()
+{
+	SDL_UpdateWindowSurface(screen);
+}
+
 void ColonizationChess::end()
 {
 	if (screen != NULL)
@@ -43,7 +48,26 @@ int main(int argc, char **argv) {
 	cerr << "Starting game (v" << cchess::version_number << "/" << cchess::version_name << ")\n";
 	colchess->init();
 	
-	SDL_Delay(2000);
+	//Event handler
+	SDL_Event e;
+	bool quit = false;
+	int fps = 10;
+	unsigned int timeout = 1000/fps;
+	while (!quit)
+	{
+		unsigned int _framestart = SDL_GetTicks();
+		while( SDL_PollEvent( &e ) != 0 )
+		{
+			if (e.type == SDL_QUIT)
+				quit = true;
+		}
+		
+		colchess->update();
+		while ((SDL_GetTicks() - _framestart) < timeout)
+		{
+			SDL_Delay(10);
+		}
+	}
 
 	colchess->end();
 	return 0;

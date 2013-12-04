@@ -17,6 +17,9 @@ class ColonizationChess
 		//Create SDL window, set up a new board, the stuff
 		void init();
 		
+		//Update
+		void update();
+		
 		//Clean up and finish
 		void end();
 };

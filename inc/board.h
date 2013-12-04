@@ -11,7 +11,8 @@ using namespace std;
 class Board
 {
 	vector<Tile*> board;
-	vector<Player*> players;
+	map<cchess::T_players, Player*> players;
+	int size;
 	
 	public:
 		//The board (size)

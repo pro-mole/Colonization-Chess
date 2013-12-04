@@ -8,6 +8,7 @@
 #include <map>
 #include <cstdlib>
 #include <cstdio>
+#include <cmath>
 
 namespace cchess {
 	//Global Constants
