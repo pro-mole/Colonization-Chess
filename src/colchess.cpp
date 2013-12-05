@@ -17,15 +17,29 @@ void ColonizationChess::init()
 		screen = SDL_CreateWindow( title, 64, 64, 640, 480, SDL_WINDOW_SHOWN );
 		cerr << "Window created\n";
 		render = SDL_CreateRenderer(screen, -1,  SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-		cerr << "Rendered created\n";
+		cerr << "Renderer created\n";
 	}
 
 	board = new Board(9);
 }
 
+void ColonizationChess::draw()
+{
+	SDL_RenderClear(render);
+	//Fill the screen black for background
+	SDL_SetRenderDrawColor(render, 0, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderFillRect(render, NULL);
+	//SDL_UpdateWindowSurface(screen);
+	
+	cerr << "Draw the board\n";
+	//Draw the board on top
+	board->draw(render, (640-9*16)/2, (480-9*16)/2);
+	
+	SDL_RenderPresent(render);
+}
+
 void ColonizationChess::update()
 {
-	SDL_UpdateWindowSurface(screen);
 }
 
 void ColonizationChess::end()
@@ -62,6 +76,7 @@ int main(int argc, char **argv) {
 				quit = true;
 		}
 		
+		colchess->draw();
 		colchess->update();
 		while ((SDL_GetTicks() - _framestart) < timeout)
 		{

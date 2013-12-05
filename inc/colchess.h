@@ -20,6 +20,9 @@ class ColonizationChess
 		//Update
 		void update();
 		
+		//Draw
+		void draw();
+		
 		//Clean up and finish
 		void end();
 };

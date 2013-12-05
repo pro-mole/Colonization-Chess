@@ -29,5 +29,11 @@ namespace cchess {
 	typedef enum {
 		TILE_EMPTY
 	} T_tilemap;
+	
+	//Tile position on board
+	typedef struct {
+		int X;
+		int Y;
+	} board_position;
 }
 #endif
