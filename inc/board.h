@@ -31,6 +31,9 @@ class Board
 		
 		//Start player's turn(reposition cursor, etc)
 		void startTurn(cchess::T_players);
+		
+		//Keyboard handling
+		void keydown(SDL_KeyboardEvent);
 };
 
 #endif

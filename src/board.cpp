@@ -12,7 +12,7 @@ Board::Board(int _size)
 		for (int j=0; j<size; j++)
 		{
 			std::cerr << "Board cell " << (i+1) << "," << (j+1) << "\n";
-			board[j*size + i] = new Tile(i, j, NULL, cchess::T_TERRAIN);
+			board[j*size + i] = new Tile(i+1, j+1, NULL, cchess::T_TERRAIN);
 		}
 	}
 	
@@ -56,6 +56,29 @@ void Board::startTurn(cchess::T_players player)
 	whosturn = player;
 }
 
+void Board::keydown(SDL_KeyboardEvent ev_key)
+{
+	switch(ev_key.keysym.sym)
+	{
+		case SDLK_LEFT:
+			if (cursor.X > 1)
+				cursor.X -= 1;
+			break;
+		case SDLK_RIGHT:
+			if (cursor.X < size)
+				cursor.X += 1;
+			break;
+		case SDLK_UP:
+			if (cursor.Y > 1)
+				cursor.Y -= 1;
+			break;
+		case SDLK_DOWN:
+			if (cursor.Y < size)
+				cursor.Y += 1;
+			break;
+	}
+}
+
 void Board::draw(SDL_Renderer* render, int x, int y)
 {
 	int tile_x = 0,
@@ -75,7 +98,7 @@ void Board::draw(SDL_Renderer* render, int x, int y)
 	//Draw grid lines
 	
 	//Draw cursor
-	SDL_Rect cursor_rect = {x+cursor.X*tile_w, y+cursor.Y*tile_h, tile_w, tile_h};
+	SDL_Rect cursor_rect = {x+(cursor.X-1)*tile_w, y+(cursor.Y-1)*tile_h, tile_w, tile_h};
 	SDL_SetRenderDrawColor(render, 255, 255,255, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawRect(render, &cursor_rect);
 }

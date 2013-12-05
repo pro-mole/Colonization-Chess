@@ -23,6 +23,9 @@ class ColonizationChess
 		//Draw
 		void draw();
 		
+		//Keyboard handling
+		void keydown(SDL_KeyboardEvent);
+		
 		//Clean up and finish
 		void end();
 };

@@ -38,6 +38,11 @@ void ColonizationChess::draw()
 	SDL_RenderPresent(render);
 }
 
+void ColonizationChess::keydown(SDL_KeyboardEvent key)
+{
+	board->keydown(key);
+}
+
 void ColonizationChess::update()
 {
 }
@@ -74,6 +79,17 @@ int main(int argc, char **argv) {
 		{
 			if (e.type == SDL_QUIT)
 				quit = true;
+				
+			else if (e.type == SDL_KEYDOWN)
+			{
+				switch(e.key.keysym.sym)
+				{
+					case SDLK_ESCAPE:
+						quit = true; break;
+				}
+				
+				colchess->keydown(e.key);
+			}
 		}
 		
 		colchess->draw();
