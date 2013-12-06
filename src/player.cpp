@@ -5,7 +5,7 @@ Player::Player()
 {
 	side = cchess::P_NEUTRAL;
 	name = "PLAYER";
-	color = {0xff, 0xff, 0xff};
+	color = color::C_NEUTRAL;
 	player_base = NULL;
 }
 

@@ -5,6 +5,13 @@ using namespace std;
 const char* cchess::version_number = "0.1a";
 const char* cchess::version_name = "amphioxus";
 
+SDL_Color
+	color::C_BACKGROUND = 	{0x00, 0x00, 0x00, 255},
+	color::C_FOREGROUND = 	{0xff, 0xff, 0xff, 255},
+	color::C_NEUTRAL = 	{0x48, 0x3C, 0x32, 255},
+	color::C_NATURE = 		{0x00, 0xC0, 0x00, 255},
+	color::C_INDUSTRY = 	{0x80, 0x80, 0x80, 255};
+	
 void ColonizationChess::init()
 {
 	if (screen == NULL)
@@ -70,7 +77,7 @@ int main(int argc, char **argv) {
 	//Event handler
 	SDL_Event e;
 	bool quit = false;
-	int fps = 10;
+	int fps = 25;
 	unsigned int timeout = 1000/fps;
 	while (!quit)
 	{

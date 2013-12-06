@@ -38,7 +38,7 @@ Player* Tile::getPlayer()
 SDL_Color Tile::getColor()
 {
 	if (this->getPlayer() == NULL)
-		return {0x48, 0x3C, 0x32};
+		return color::C_NEUTRAL;
 	else
 		return this->getPlayer()->getColor();
 }

@@ -10,6 +10,16 @@
 #include <cstdio>
 #include <cmath>
 
+namespace color {
+	extern SDL_Color
+		C_BACKGROUND,
+		C_FOREGROUND,
+		//Player Colors
+		C_NEUTRAL,
+		C_NATURE,
+		C_INDUSTRY;
+}
+
 namespace cchess {
 	//Global Constants
 	extern const char* version_number;
