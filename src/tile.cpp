@@ -4,23 +4,23 @@
 Tile::Tile()
 {
 	owner = NULL;
-	type = cchess::T_TERRAIN;
+	type = terrachess::T_TERRAIN;
 	pos = {-1, -1};
 }
 
-Tile::Tile(int x, int y, Player* _player, cchess::T_tiles _type)
+Tile::Tile(int x, int y, Player* _player, terrachess::Tiles _type)
 {
 	owner = _player;
 	type = _type;
 	pos = {x, y};
 }
 
-void Tile::setType(cchess::T_tiles _type)
+void Tile::setType(terrachess::Tiles _type)
 {
 	type = _type;
 }
 
-cchess::T_tiles Tile::getType()
+terrachess::Tiles Tile::getType()
 {
 	return type;
 }
@@ -53,7 +53,7 @@ int Tile::getY()
 	return pos.Y;
 }
 
-cchess::board_position Tile::getPosition()
+terrachess::BoardPosition Tile::getPosition()
 {
 	return pos;
 }

@@ -12,30 +12,30 @@ Board::Board(int _size)
 		for (int j=0; j<size; j++)
 		{
 			std::cerr << "Board cell " << (i+1) << "," << (j+1) << "\n";
-			board[j*size + i] = new Tile(i+1, j+1, NULL, cchess::T_TERRAIN);
+			board[j*size + i] = new Tile(i+1, j+1, NULL, terrachess::T_TERRAIN);
 		}
 	}
 	
 	//Create Players
-	players[cchess::P_NEUTRAL] = NULL;
-	players[cchess::P_NATURE] = new PlayerNature();
-	players[cchess::P_INDUSTRY] = new PlayerIndustry();
+	players[terrachess::P_NEUTRAL] = NULL;
+	players[terrachess::P_NATURE] = new PlayerNature();
+	players[terrachess::P_INDUSTRY] = new PlayerIndustry();
 	
 	//Position players
 	int midway = ceil(size/2.0);
 	Tile* base;
 	base = this->getTile(size, midway);
-	base->setType(cchess::T_BASE);
-	this->getPlayer(cchess::P_NATURE)->setBase(base);
+	base->setType(terrachess::T_BASE);
+	this->getPlayer(terrachess::P_NATURE)->setBase(base);
 	
 	base = this->getTile(1, midway);
-	base->setType(cchess::T_BASE);
-	this->getPlayer(cchess::P_INDUSTRY)->setBase(base);
+	base->setType(terrachess::T_BASE);
+	this->getPlayer(terrachess::P_INDUSTRY)->setBase(base);
 	
-	startTurn(cchess::P_NATURE);
+	startTurn(terrachess::P_NATURE);
 }
 
-Player* Board::getPlayer(cchess::T_players player)
+Player* Board::getPlayer(terrachess::Players player)
 {
 	return players[player];
 }
@@ -49,7 +49,7 @@ Tile* Board::getTile(int x, int y)
 	return board[y * size + x];
 }
 
-void Board::startTurn(cchess::T_players player)
+void Board::startTurn(terrachess::Players player)
 {
 	//Put cursor on player's base
 	cursor = this->getPlayer(player)->getBase()->getPosition();

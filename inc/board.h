@@ -11,10 +11,10 @@ using namespace std;
 class Board
 {
 	vector<Tile*> board;
-	map<cchess::T_players, Player*> players; //The player list
-	cchess::T_players whosturn; //Who plays now
+	map<terrachess::Players, Player*> players; //The player list
+	terrachess::Players whosturn; //Who plays now
 	int size;
-	cchess::board_position cursor;
+	terrachess::BoardPosition cursor;
 	
 	public:
 		//The board (size)
@@ -24,13 +24,13 @@ class Board
 		void draw(SDL_Renderer*, int, int);
 		
 		//Get player
-		Player* getPlayer(cchess::T_players player);
+		Player* getPlayer(terrachess::Players player);
 		
 		//Get tile at position
 		Tile* getTile(int x, int y);
 		
 		//Start player's turn(reposition cursor, etc)
-		void startTurn(cchess::T_players);
+		void startTurn(terrachess::Players);
 		
 		//Keyboard handling
 		void keydown(SDL_KeyboardEvent);

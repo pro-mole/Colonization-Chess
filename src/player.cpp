@@ -3,13 +3,13 @@
 
 Player::Player()
 {
-	side = cchess::P_NEUTRAL;
+	side = terrachess::P_NEUTRAL;
 	name = "PLAYER";
 	color = color::C_NEUTRAL;
 	player_base = NULL;
 }
 
-Player::Player(cchess::T_players _side, const string _name, SDL_Color _color)
+Player::Player(terrachess::Players _side, const string _name, SDL_Color _color)
 {
 	side = _side;
 	name = _name;

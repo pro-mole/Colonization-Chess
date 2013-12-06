@@ -1,5 +1,5 @@
 #include <playerNature.h>
 
-PlayerNature::PlayerNature():Player(cchess::P_NATURE, "NATURE", color::C_NATURE)
+PlayerNature::PlayerNature():Player(terrachess::P_NATURE, "NATURE", color::C_NATURE)
 {
 }

@@ -5,18 +5,18 @@
 class Player;
 
 class Tile {
-	cchess::T_tiles type;
+	terrachess::Tiles type;
 	Player* owner;
-	cchess::board_position pos;
+	terrachess::BoardPosition pos;
 	
 	Tile();
 	public:
-		Tile(int, int, Player*, cchess::T_tiles);
+		Tile(int, int, Player*, terrachess::Tiles);
 		
 		void draw(SDL_Renderer*, int, int);
 		
-		cchess::T_tiles getType();
-		void setType(cchess::T_tiles);
+		terrachess::Tiles getType();
+		void setType(terrachess::Tiles);
 		
 		Player* getPlayer();
 		void setPlayer(Player*);
@@ -25,7 +25,7 @@ class Tile {
 		
 		int getX();
 		int getY();
-		cchess::board_position getPosition();
+		terrachess::BoardPosition getPosition();
 };
 
 #endif

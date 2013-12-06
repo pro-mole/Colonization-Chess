@@ -8,14 +8,14 @@ class Tile;
 using namespace std;
 
 class Player {
-	cchess::T_players side;
+	terrachess::Players side;
 	string name;
 	SDL_Color color;
 	Tile* player_base;
 	
 	Player();
 	public:
-		Player(cchess::T_players, const string, SDL_Color);
+		Player(terrachess::Players, const string, SDL_Color);
 		
 		//Return the drawing color for the player
 		SDL_Color getColor();

@@ -2,8 +2,11 @@
 
 using namespace std;
 
-const char* cchess::version_number = "0.1a";
-const char* cchess::version_name = "amphioxus";
+const char* terrachess::version_number = "0.1a";
+const char* terrachess::version_name = "amphioxus";
+
+SDL_Window* terrachess::main_screen = NULL;
+SDL_Renderer* terrachess::main_render = NULL;
 
 SDL_Color
 	color::C_BACKGROUND = 	{0x00, 0x00, 0x00, 255},
@@ -20,10 +23,12 @@ void ColonizationChess::init()
 		SDL_Init( SDL_INIT_EVERYTHING );
 
 		char* title = new char[256];
-		sprintf(title, "Colonization Chess %s(%s)", cchess::version_number, cchess::version_name);
+		sprintf(title, "Colonization Chess %s(%s)", terrachess::version_number, terrachess::version_name);
 		screen = SDL_CreateWindow( title, 64, 64, 640, 480, SDL_WINDOW_SHOWN );
+		terrachess::main_screen = screen;
 		cerr << "Window created\n";
 		render = SDL_CreateRenderer(screen, -1,  SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		terrachess::main_render = render;
 		cerr << "Renderer created\n";
 	}
 
@@ -71,7 +76,7 @@ int main(int argc, char **argv) {
 	
 	cerr << "START\n";
 	ColonizationChess* colchess = new ColonizationChess();
-	cerr << "Starting game (v" << cchess::version_number << "/" << cchess::version_name << ")\n";
+	cerr << "Starting game (v" << terrachess::version_number << "/" << terrachess::version_name << ")\n";
 	colchess->init();
 	
 	//Event handler
