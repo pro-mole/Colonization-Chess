@@ -5,14 +5,14 @@ Tile::Tile()
 {
 	owner = NULL;
 	type = terrachess::T_TERRAIN;
-	pos = {-1, -1};
+	pos = (terrachess::BoardPosition){-1, -1};
 }
 
 Tile::Tile(int x, int y, Player* _player, terrachess::Tiles _type)
 {
 	owner = _player;
 	type = _type;
-	pos = {x, y};
+	pos = (terrachess::BoardPosition){x, y};
 }
 
 void Tile::setType(terrachess::Tiles _type)
