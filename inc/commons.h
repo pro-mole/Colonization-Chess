@@ -22,28 +22,34 @@ namespace terrachess {
 
 	//Special enum types
 	//Player types
-	typedef enum { P_NEUTRAL, P_NATURE, P_INDUSTRY } Players;
+	enum Players { P_NEUTRAL, P_NATURE, P_INDUSTRY };
 
 	//Tile types
-	typedef enum { T_BASE, T_TERRAIN, T_UNIT, T_BUILDING } Tiles;
+	enum Tiles { T_BASE, T_TERRAIN, T_UNIT, T_BUILDING };
 
 	//Tile action types
-	typedef enum { ACT_MOVE, ACT_CONVERT, ACT_ATTACK, ACT_BOOST, ACT_BUILD } Actions;
+	enum Actions { ACT_MOVE, ACT_CONVERT, ACT_ATTACK, ACT_BOOST, ACT_BUILD };
 
 	//Tile mapping(will be mapped to x/y positions via std::map)
-	typedef enum {
+	enum TileNames {
 		//Generic board tiles, yay
 		TILE_EMPTY,
 		TILE_BASE,
 		TILE_UNIT,
 		TILE_STRUCTURE
-	} TileNames;
+	};
 	
 	//Tile position on board
-	typedef struct {
+	struct BoardPosition {
 		int X;
 		int Y;
-	} BoardPosition;
+	};
+	
+	//Tile position on map
+	struct MapPosition {
+		int X;
+		int Y;
+	};
 }
 
 //Color related constants
