@@ -3,8 +3,11 @@
 #include <commons.h>
 
 class Tilemap {
-	SDL_Surface* tilemap;
+	SDL_Surface* tilemap_surface;
 	int tile_h, tile_w; //Tile dimensions
+	
+	std::map<char,terrachess::MapPosition> charmap;
+	std::map<terrachess::TileNames,terrachess::MapPosition> tilemap;
 	
 	Tilemap();
 	public:
