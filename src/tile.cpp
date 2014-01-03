@@ -45,12 +45,12 @@ SDL_Color Tile::getColor()
 
 int Tile::getX()
 {
-	return pos.X;
+	return this->pos.X;
 }
 
 int Tile::getY()
 {
-	return pos.Y;
+	return this->pos.Y;
 }
 
 terrachess::BoardPosition Tile::getPosition()

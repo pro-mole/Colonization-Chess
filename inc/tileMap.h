@@ -15,6 +15,10 @@ class Tilemap {
 		Tilemap(SDL_Surface*, int);
 		Tilemap(const char*, int, int);
 		Tilemap(const char*, int);
+
+		SDL_Surface* drawTile(SDL_Renderer*, terrachess::MapPosition);
+		SDL_Surface* drawTile(SDL_Renderer*, char);
+		SDL_Surface* drawTile(SDL_Renderer*, terrachess::TileNames);
 };
 
 #endif
