@@ -26,10 +26,10 @@ void ColonizationChess::init()
 		sprintf(title, "Colonization Chess %s(%s)", terrachess::version_number, terrachess::version_name);
 		screen = SDL_CreateWindow( title, 64, 64, 640, 480, SDL_WINDOW_SHOWN );
 		terrachess::main_screen = screen;
-		cerr << "Window created\n";
+		cerr << "Window created" << endl;
 		render = SDL_CreateRenderer(screen, -1,  SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 		terrachess::main_render = render;
-		cerr << "Renderer created\n";
+		cerr << "Renderer created" << endl;
 	}
 
 	board = new Board(9);
@@ -113,5 +113,6 @@ int main(int argc, char **argv) {
 	}
 
 	colchess->end();
+	delete colchess;
 	return 0;
 }
