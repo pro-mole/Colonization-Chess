@@ -4,6 +4,7 @@
 
 class Tilemap {
 	SDL_Surface* tilemap_surface;
+	SDL_Texture* tilemap_texture;
 	int tile_h, tile_w; //Tile dimensions
 	
 	std::map<char,terrachess::MapPosition> charmap;
@@ -16,9 +17,9 @@ class Tilemap {
 		Tilemap(const char*, int, int);
 		Tilemap(const char*, int);
 
-		SDL_Surface* drawTile(SDL_Renderer*, terrachess::MapPosition);
-		SDL_Surface* drawTile(SDL_Renderer*, char);
-		SDL_Surface* drawTile(SDL_Renderer*, terrachess::TileNames);
+		int drawTile(SDL_Renderer*, terrachess::MapPosition, int, int);
+		int drawTile(SDL_Renderer*, char, int, int);
+		int drawTile(SDL_Renderer*, terrachess::TileNames, int, int);
 };
 
 #endif

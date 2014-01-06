@@ -11,6 +11,7 @@ class ColonizationChess
 	SDL_Renderer* render; //Main renderer, default to draw everything
 	
 	Board* board; //The game board
+	Tilemap* tilemap; //The tilemap to draw the board
 
 	public:
 		//Starts the game

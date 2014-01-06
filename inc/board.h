@@ -3,6 +3,7 @@
 #ifndef _BOARD_H_
 #define _BOARD_H_
 #include <commons.h>
+#include <tilemap.h>
 #include <player.h>
 #include <tile.h>
 

@@ -33,6 +33,7 @@ void ColonizationChess::init()
 	}
 
 	board = new Board(9);
+	tilemap = new Tilemap("assets/terminalfont_8x8",8);
 }
 
 void ColonizationChess::draw()
